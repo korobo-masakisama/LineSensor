@@ -1,8 +1,9 @@
 #include "LineSensor.h"
-LineSensor LS = LineSensor(false); //引数はキャリブレーションするかどうか
+LineSensor LS = LineSensor(true); //引数はキャリブレーションするかどうか
 
 void setup() {
   Serial.begin(115200);
+  LS.setThreshold();//閾値設定
   LS.printThreshold();//閾値表示
   delay(5000);//ledが点灯するまでわざと時間がかかるという設定にしている
   LS.turnOnLed();//led点灯

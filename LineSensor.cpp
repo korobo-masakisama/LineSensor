@@ -4,16 +4,20 @@
 
 LineSensor::LineSensor(boolean calibration) {
   FastLED.addLeds<WS2812, LED_DATA_PIN, GRB>(leds, NUM_LEDS);
-  if (!calibration) {
+  cb = calibration;
+}
+
+void LineSensor::setThreshold(void) {
+  if (cb) {
+    LineSensor::calibration(3);
+    LineSensor::calibration(5);
+    LineSensor::calibration(6);
+  } else {
     for (int i = 0; i < NUM_LINES; i++) {
       line_threshold[i] = EEPROM.read(i + eeprom_offset) * 4;
     }
     Serial.println("Skipped calibration");
-  } else {
-    LineSensor::calibration(3);
-    LineSensor::calibration(5);
-    LineSensor::calibration(6);
-  }
+  }  
 }
 
 void LineSensor::getLine(int *escape_x, int *escape_y) {

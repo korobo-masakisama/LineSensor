@@ -14,6 +14,7 @@ class LineSensor {
     void printThreshold();
     void printLoopSp();
     void turnOnLed();
+    void setThreshold();
     void calibration(byte mode);
     int lineRead(byte line_number);
     byte judgLine(byte line_number, int *x, int *y);
@@ -27,6 +28,7 @@ class LineSensor {
     const float threshold_ratio = 0.50;//閾値緑最大値5割
     int raw_value[NUM_LINES];
     int line_threshold[NUM_LINES] = {0};
+    boolean cb;
     CRGB leds[NUM_LEDS];
 };
 
