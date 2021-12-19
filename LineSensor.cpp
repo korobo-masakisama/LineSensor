@@ -142,8 +142,8 @@ void LineSensor::getLine(int *escape_x, int *escape_y) {
   last_value[1] = last_value[0];
   last_value[0] = num_line_react;
   //Serial.println(num_line_react);
-  Serial.print("linedir: ");
-  Serial.println(linedir);
+  //Serial.print("linedir: ");
+  //Serial.println(linedir);
   //  Serial.print("lineflag: ");
   //  Serial.println(lineflag);
   //  Serial.print("escape_x: ");
